@@ -27,12 +27,10 @@ pipeline {
         stage ('Exec Gradle') {
             steps {
                 rtGradleRun (
-                    tool: "gradle",
                     tasks: 'clean artifactoryPublish',
                     deployerId: "GRADLE_DEPLOYER",
                     useWrapper: true,
                     resolverId: "GRADLE_RESOLVER",
-                    buildFile: "build.gradle"
                 )
             }
         }
